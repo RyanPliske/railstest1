@@ -1,11 +1,14 @@
 <% for article in @articles %>
+<!--Could also do < @articles.each do |article| > -->
 	<p>
 	  <strong>Title:</strong>
-	  <%= @articles %>
+	  <%= article.title %>
 	</p>
 	 
 	<p>
 	  <strong>Text:</strong>
-	  <%= @articles %>
+	  <%= article.text %>
 	</p>
 <% end %>
+
+<%= link_to 'New article', new_article_path %>
