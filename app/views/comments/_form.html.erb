@@ -1,0 +1,15 @@
+<!--Form that allows the user to create or update attributes of a comment that is associated to article model object.
+	form_for(record, options={}, &block) -->
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -9,34 +9,11 @@
 </p>
 
 <h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+<!-- render method iterates over the @article.comments collection, assigns each comment to a local var name same as the partial -->
+<%= render @article.comments %>
 
 <h2>Add a comment:</h2>
-<!--Form that allows the user to create or update attributes of a comment that is associated to article model object.
-	form_for(record, options={}, &block) -->
-<%= form_for([@article, @article.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'comments/form' %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
