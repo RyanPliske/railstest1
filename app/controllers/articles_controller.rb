@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+	http_basic_authenticate_with name: "ryan", password: "secret", except: [:index, :show]
+
 	def new
 		'Send @article to view'
 		@article = Article.new
